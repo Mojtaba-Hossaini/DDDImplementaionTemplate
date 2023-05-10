@@ -1,11 +1,15 @@
 using IdGen.DependencyInjection;
 using Kshop.Infra.Persistence.EntityFrameWork;
 using Kshop.Infra.Persistence.EntityFrameWork.Customers;
+using Kshop.Infra.Persistence.EntityFrameWork.Discounts;
 using Kshop.Infra.Persistence.EntityFrameWork.Orders;
+using Kshop.Infra.Persistence.EntityFrameWork.Shares;
 using Kshop.Infra.Persistence.EntityFrameWork.Shipments;
 using KShop.Application.DomainApplication.CommandHandlers.Customers;
 using KShop.Core.Domain.Customers;
+using KShop.Core.Domain.Discounts;
 using KShop.Core.Domain.Orders;
+using KShop.Core.Domain.Shares;
 using KShop.Core.Domain.Shipments;
 using KShop.Endpoint.Api.Middlewares;
 using KShop.EndPoint.Subscriber.EventHandlers.Orders;
@@ -44,6 +48,8 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IShipmentRepository, ShipmentRepository>();
 builder.Services.AddScoped<IShipmentQueryRepository, ShipmentQueryRepository>();
+builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
+builder.Services.AddScoped<IShareRepository, ShareRepository>();
 builder.Services.Configure<MinPriceConfig>(builder.Configuration.GetSection("MinPriceConfig"));
 builder.Services.Configure<ValidShopTimeConfig>(builder.Configuration.GetSection("ValidShopTimeConfig"));
 

@@ -5,6 +5,7 @@ namespace KShop.Application.DomainApplication.Contracts.Orders.Commands;
 public class CreateOrderCommand : IRequest<long>
 {
     public long CustomerId { get; set; }
+    public long? DiscountId { get; set; }
     public List<OrderItem> Items { get; set; }
     public class OrderItem
     {

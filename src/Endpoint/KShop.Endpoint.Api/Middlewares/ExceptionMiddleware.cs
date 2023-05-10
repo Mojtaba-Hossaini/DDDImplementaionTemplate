@@ -1,4 +1,5 @@
 ﻿using KShop.Core.Domain.Orders.Exceptions;
+using KShop.Core.Domain.Shipments.Exceptions;
 using System.Net;
 
 namespace KShop.Endpoint.Api.Middlewares;
@@ -17,6 +18,10 @@ public class ExceptionMiddleware
         try
         {
             await next(httpContext);
+        }
+        catch(OrderNotFoundException ex)
+        {
+            await HandleExceptionAsync(httpContext, ex);
         }
         catch (OrderItemsReqiredException ex)
         {

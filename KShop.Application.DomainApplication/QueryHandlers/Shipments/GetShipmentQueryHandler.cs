@@ -1,4 +1,5 @@
 ﻿using KShop.Application.DomainApplication.Contracts.Shipments.Queries;
+using KShop.Core.Domain.Shipments.Exceptions;
 using KShop.Infra.Query.EntityFrameWork;
 using KShop.Infra.Query.EntityFrameWork.Contracts;
 using MediatR;
@@ -15,6 +16,7 @@ public class GetShipmentQueryHandler : IRequestHandler<GetShipmentQuery, GetShip
     public async Task<GetShipmentQueryResult> Handle(GetShipmentQuery request, CancellationToken cancellationToken)
     {
         var shipment = await shipmentQueryRepository.GetShipmentById(request.OrderId, cancellationToken);
+        if (shipment is null) throw new OrderNotFoundException();
         return new GetShipmentQueryResult
         {
             OrderId = shipment.OrderId,

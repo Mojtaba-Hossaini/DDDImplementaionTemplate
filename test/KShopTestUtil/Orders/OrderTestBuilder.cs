@@ -1,5 +1,4 @@
 ﻿using KShop.Core.Domain.Orders;
-using KShop.Core.Domain.Orders.Exceptions;
 
 namespace KShopTestUtil.Orders;
 public class OrderTestBuilder
@@ -40,7 +39,7 @@ public class OrderTestBuilder
 
 
     public Order Build()
-        => Order.Build(Id, CustomerId, BuildOrderItem());
+        => Order.Build(Id, CustomerId, null, Price, BuildOrderItem());
 }
 
 public class OrderItem
