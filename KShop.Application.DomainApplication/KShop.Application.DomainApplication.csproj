@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdGen" Version="3.0.3" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Core\KShop.Core.Domain\KShop.Core.Domain.csproj" />
+    <ProjectReference Include="..\src\FrameWork\KShop.FrameWork.SharedFrameWork\KShop.FrameWork.SharedFrameWork.csproj" />
+    <ProjectReference Include="..\src\Infra\Query\KShop.Infra.Query.EntityFrameWork\KShop.Infra.Query.EntityFrameWork.csproj" />
+  </ItemGroup>
+
+</Project>
